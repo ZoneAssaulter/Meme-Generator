@@ -1,0 +1,31 @@
+@media (min-width: 680px) {
+  nav {
+    flex-direction: row;
+    position: relative;
+    height: auto;
+    transform: translateX(0%);
+    background: transparent;
+    z-index: 0;
+  }
+
+  header {
+    margin: 9px 0;
+    border-radius: 4em;
+  }
+  nav button {
+    width: auto;
+    margin-inline-start: 20px;
+    border-radius: 4em;
+    box-shadow: none;
+    padding: 3px 22px;
+  }
+  .gallery{
+      margin: 10px;
+  }
+}
+
+@media (min-width: 1040px) {
+  .search-bar {
+    margin-inline-start: 10px;
+  }
+}

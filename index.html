@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/362d0183c1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Meme Generator</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-container flex">
+        <img src="img/logo.png" alt="" />
+        <button class="fa-bars fas" onclick="onToggleMenu()"></button>
+        <nav class="flex">
+            <button class="fas fa-times" onclick="onToggleMenu()"></button>
+            <button class="gallery-btn">Gallery</button>
+            <button class="saved-btn">Saved Memes</button>
+            <button class="about-btn">About</button>
+        </nav>
+      </div>
+    </header>
+    <section class="gallery">
+        <div class="filter-bar flex">
+            <div class="search-bar flex">
+                <input type="text" list="keywordsData" oninput="onKeyword(this.value)" placeholder="Search">
+                <datalist class="keywordsData"></datalist>
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="categories-container flex">
+                <div class="filter-words-container flex">
+
+                </div>
+                <button class="more-btn" onclick="onMoreKeywords(this)">More</button>
+            </div>
+        </div>
+        <div class="images-container"></div>
+    </section>
+  </body>
+</html>
