@@ -4,38 +4,61 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/362d0183c1.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/362d0183c1.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/styles.css" />
     <title>Meme Generator</title>
   </head>
-  <body>
+
+  <body onload="onInit()">
     <header>
       <div class="header-container flex">
         <img src="img/logo.png" alt="" />
         <button class="fa-bars fas" onclick="onToggleMenu()"></button>
         <nav class="flex">
-            <button class="fas fa-times" onclick="onToggleMenu()"></button>
-            <button class="gallery-btn">Gallery</button>
-            <button class="saved-btn">Saved Memes</button>
-            <button class="about-btn">About</button>
+          <button class="fas fa-times" onclick="onToggleMenu()"></button>
+          <button class="gallery-btn" onclick="navigateTo('gallery')">
+            Gallery
+          </button>
+          <button class="saved-btn" onclick="navigateTo('saved')">
+            Saved Memes
+          </button>
+          <button class="about-btn" onclick="navigateTo('about')">About</button>
         </nav>
       </div>
     </header>
-    <section class="gallery">
-        <div class="filter-bar flex">
-            <div class="search-bar flex">
-                <input type="text" list="keywordsData" oninput="onKeyword(this.value)" placeholder="Search">
-                <datalist class="keywordsData"></datalist>
-                <i class="fas fa-search"></i>
-            </div>
-            <div class="categories-container flex">
-                <div class="filter-words-container flex">
 
-                </div>
-                <button class="more-btn" onclick="onMoreKeywords(this)">More</button>
-            </div>
+    <section class="gallery">
+      <div class="filter-bar flex">
+        <div class="search-bar flex">
+          <input
+            type="text"
+            list="keywordsData"
+            oninput="onKeyword(this.value)"
+            placeholder="Search"
+          />
+          <datalist class="keywordsData"></datalist>
+          <i class="fas fa-search"></i>
         </div>
-        <div class="images-container"></div>
+        <div class="categories-container flex">
+          <div class="filter-words-container flex"></div>
+          <button class="more-btn" onclick="onMoreKeywords(this)">More</button>
+        </div>
+      </div>
+      <div class="images-container"></div>
     </section>
+
+    
+
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/upload.service.js"></script>
+    <script src="js/services/gallery.service.js"></script>
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/controllers/main.controller.js"></script>
+    <script src="js/controllers/gallery.controller.js"></script>
+    <script src="js/controllers/saved.controller.js"></script>
+    <script src="js/controllers/meme.controller.js"></script>
   </body>
 </html>
