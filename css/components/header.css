@@ -36,3 +36,11 @@ nav button.active {
     padding: 10px 10px 8px;
     font-size: 1.3rem;
   }
+
+  nav.open {
+    transform: translateX(0);
+  }
+
+  .logo {
+    cursor: pointer;
+  }

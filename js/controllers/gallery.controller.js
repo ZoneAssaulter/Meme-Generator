@@ -44,3 +44,43 @@ function onKeyword(keyword){
     renderKeywords()
     renderGallery(keyword)
 }
+
+function onToggleMenu() {
+    document.querySelector('nav').classList.toggle('open');
+    document.querySelector('.main-screen').classList.toggle('open')
+}
+
+function onImgSelect(imgId){
+    openEditor()
+    initMeme(imgId)
+}
+
+function onImgInput(ev){
+    loadImageFromInput(ev, DrawUploadedImg)
+}
+
+function DrawUploadedImg(img){
+    document.querySelector('.test-img').src = img.src
+    onImgSelect(0)
+}
+
+function loadImageFromInput(ev, onImageReady) {
+    var reader = new FileReader()
+    reader.onload = (event) => {
+        var img = new Image()
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result
+    }
+    reader.readAsDataURL(ev.target.files[0])
+}
+
+function openEditor() {
+    navigateTo('editor')
+    document.body.classList.add('background')
+}
+
+function onMoreKeywords(elMoreBtn){
+    const isOpen = (elMoreBtn.innerText === 'More')
+    elMoreBtn.innerText = (isOpen) ? 'Less' : 'More'
+    renderKeywords(isOpen)
+}

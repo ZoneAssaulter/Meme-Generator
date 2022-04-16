@@ -46,6 +46,13 @@
   flex-wrap: wrap;
 }
 
+.filter-words-container button {
+  color: white;
+  margin: 0.7px;
+  cursor: pointer;
+  background: transparent;
+}
+
 .fa-search {
   border-radius: 0;
   padding: 1px;
@@ -69,3 +76,4 @@
   box-shadow: var(--box-shadow);
   transition: transform 0.3s;
 }
+

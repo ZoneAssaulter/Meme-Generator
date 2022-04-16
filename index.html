@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,7 +15,7 @@
   <body onload="onInit()">
     <header>
       <div class="header-container flex">
-        <img src="img/logo.png" alt="" />
+        <img src="img/logo.png" alt="" class="logo" onclick="navigateTo('gallery')"/>
         <button class="fa-bars fas" onclick="onToggleMenu()"></button>
         <nav class="flex">
           <button class="fas fa-times" onclick="onToggleMenu()"></button>
@@ -50,8 +50,119 @@
       <div class="images-container"></div>
     </section>
 
-    
+    <section class="editor main-layout flex hidden">
+      <div class="canvas-container">
+        <canvas width="500" height="500" id="my-canvas"></canvas>
+      </div>
+      <div class="toolbar flex">
+        <input type="text" name="txt" oninput="onSetText(this.value)" />
+        <div class="lines-edit">
+          <button
+            onclick="onSwitchLine()"
+            class="switch-btn fas fa-random editor-btn"
+          ></button>
+          <button
+            onclick="onAddLine()"
+            class="add-btn fas fa-plus editor-btn"
+          ></button>
+          <button
+            onclick="onDeleteLine()"
+            class="delete-btn fas fa-trash-alt editor-btn"
+          ></button>
+        </div>
+        <div class="font-edit">
+          <button
+            onclick="onSetFontSize(5)"
+            class="fas fa-expand-alt editor-btn"
+          ></button>
+          <button
+            onclick="onSetFontSize(-5)"
+            class="fas fa-compress-alt editor-btn"
+          ></button>
+          <button
+            class="fas fa-align-left editor-btn"
+            onclick="onSetAlign('start')"
+          ></button>
+          <button
+            class="fas fa-align-center editor-btn"
+            onclick="onSetAlign('center')"
+          ></button>
+          <button
+            class="fas fa-align-right editor-btn"
+            onclick="onSetAlign('end')"
+          ></button>
+          <select
+            name="fontFam"
+            class="editor-btn"
+            onchange="onSetFontFam(this.value)"
+          >
+            <option value="impact">Impact</option>
+            <option value="arial">Arial</option>
+            <option value="verdana">Verdana</option>
+            <option value="sylfaen">Sylfaen</option>
+            <option value="rockwell">Rockwell</option>
+          </select>
+          <input
+            class="fas fa-fill-drip editor-btn"
+            type="color"
+            name="fillC"
+            oninput="onSetColor(this.value,'fillC')"
+          />
+          <input
+            class="far fa-square editor-btn"
+            type="color"
+            name="strokeC"
+            oninput="onSetColor(this.value,'strokeC')"
+          />
+        </div>
+        <div class="stickers-container flex">
+          <button
+            class="fas fa-chevron-left sticker-scroll"
+            onclick="onScrollStickers(-1)"
+          ></button>
+          <div class="stickers-display"></div>
+          <button
+            class="fas fa-chevron-right sticker-scroll"
+            onclick="onScrollStickers(1)"
+          ></button>
+        </div>
+        <div class="share-btns flex">
+          <button class="share-btn editor-btn" onclick="onUploadMeme(this)">
+            <i class="fas fa-share-alt"></i> Share
+          </button>
+          <button class="editor-btn save-btn" onclick="onSaveMeme()">
+            Save
+          </button>
+          <button class="editor-btn download-btn">
+            <a href="#" onclick="onDownloadMeme(this)"> Download</a>
+          </button>
+        </div>
+      </div>
+    </section>
 
+    <section class="about hidden">
+      <h1>Welcome to my meme generator</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi,
+        voluptate quae? Iste quos sint magnam quas debitis tempora incidunt
+        dolor nobis, dignissimos, aut est placeat recusandae iusto! Perspiciatis
+        fugiat eligendi rem officiis asperiores? Eos nam ut soluta ratione! Id
+        autem maiores repellat! Minus reiciendis laboriosam laborum perspiciatis
+        ea quod nam omnis illum doloremque nobis temporibus quibusdam nisi
+        voluptas dolor, excepturi commodi, quis accusantium debitis fuga
+        voluptates! Commodi cum ducimus minus!
+      </p>
+      <button class="special-btn" onclick="navigateTo('gallery')">
+        <i class="fas fa-pencil-ruler">Begin</i>
+      </button>
+    </section>
+
+    <section class="saved hidden">
+      <div class="images-container"></div>
+    </section>
+    <div class="main-screen" onclick="onToggleMenu()"></div>
+    <img class="test-img" />
+    
     <script src="js/services/storage.service.js"></script>
     <script src="js/services/upload.service.js"></script>
     <script src="js/services/gallery.service.js"></script>
